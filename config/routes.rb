@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   get '/admin/authors/delete', to: 'authors#delete'
   get '/admin/authors/create', to: 'authors#create'
   get '/admin/comments/moderate', to: 'comments#moderate'
+  
+  scope '/admin' do
+  resources :stats, only: [:index]
+end
 
   root 'posts#index'
 end
